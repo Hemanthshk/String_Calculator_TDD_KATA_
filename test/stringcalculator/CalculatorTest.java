@@ -19,4 +19,27 @@ class CalculatorTest {
     void should_return_sum_of_two_numbers() {
         assertEquals(4, Calculator.add("1,3"));
     }
+
+    @Test
+    void should_return_sum_of_unknown_amount_of_numbers() {
+        assertEquals(8, Calculator.add("1,3,4"));
+    }
+
+    @Test
+    void should_return_sum_of_numbers_split_by_commas_and_new_lines() {
+        assertEquals(6, Calculator.add("1,2\n3"));
+    }
+
+
+    @Test
+    void should_throw_exception_for_comma_next_to_new_line() {
+        try{
+            Calculator.add("1,\n2");
+        }
+        catch(NumberFormatException e){
+            assertEquals(e.getMessage(), "New line after comma not allowed: ,\n");
+        }
+    }
+
+
 }
