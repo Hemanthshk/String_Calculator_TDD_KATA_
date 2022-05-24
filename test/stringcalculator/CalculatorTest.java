@@ -9,4 +9,11 @@ class CalculatorTest {
     void should_return_zero_for_empty_string() {
         assertEquals(0, Calculator.add(""));
     }
+
+    @Test
+    void should_return_number_for_one_number() {
+        assertEquals(4, Calculator.add("4"));
+    }
+
+
 }
