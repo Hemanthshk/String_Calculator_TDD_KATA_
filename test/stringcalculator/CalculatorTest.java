@@ -15,5 +15,8 @@ class CalculatorTest {
         assertEquals(4, Calculator.add("4"));
     }
 
-
+    @Test
+    void should_return_sum_of_two_numbers() {
+        assertEquals(4, Calculator.add("1,3"));
+    }
 }
