@@ -1,8 +1,9 @@
 package stringcalculator;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CalculatorTest {
     @Test
@@ -30,16 +31,30 @@ class CalculatorTest {
         assertEquals(6, Calculator.add("1,2\n3"));
     }
 
-
     @Test
-    void should_throw_exception_for_comma_next_to_new_line() {
-        try{
-            Calculator.add("1,\n2");
-        }
-        catch(NumberFormatException e){
-            assertEquals(e.getMessage(), "New line after comma not allowed: ,\n");
-        }
+    void should_return_sum_of_numbers_split_by_custom_delimiter() {
+        assertEquals(7, Calculator.add("//;\n1;2;4"));
     }
 
+    @Test
+    void Should_return_sum__testNewLine(){
+        assertEquals(6, Calculator.add("1\n2,3"));
+    }
 
+    @Test
+    void test_Negative_Number(){
+        try {
+            Calculator.add("-1,2");
+        }
+        catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Negatives not allowed:-1");
+        }
+
+        try {
+            Calculator.add("2,-4,3,-5");
+        }
+        catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Negatives not allowed:-4,-5");
+        }
+    }
 }
