@@ -47,14 +47,14 @@ class CalculatorTest {
             Calculator.add("-1,2");
         }
         catch (IllegalArgumentException e){
-            assertEquals(e.getMessage(), "Negatives not allowed:-1");
+            assertEquals(e.getMessage(), "Negatives not allowed: -1");
         }
 
         try {
             Calculator.add("2,-4,3,-5");
         }
         catch (IllegalArgumentException e){
-            assertEquals(e.getMessage(), "Negatives not allowed:-4,-5");
+            assertEquals(e.getMessage(), "Negatives not allowed: -4,-5");
         }
     }
 }
